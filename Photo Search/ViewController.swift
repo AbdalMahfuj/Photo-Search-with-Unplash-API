@@ -24,8 +24,11 @@ struct URLS: Codable {
 
 class ViewController: UIViewController {
     
+    let clientID = "YRtnAmFdt80Jmcj-ZNIEBSkT8u4F9gwUMgJOpfhEXuYv"
+    let query = "office"
+    
     let urlString =
-    "https://api.unsplash.com/search/photos?page=1&query=office&client_id=YRtnAmFdt80Jmcj-ZNIEBSkT8u4F9gwUMgJOpfhEXuY"
+    "https://api.unsplash.com/search/photos?page=30&query=office&client_id=YRtnAmFdt80Jmcj-ZNIEBSkT8u4F9gwUMgJOpfhEXuY"
     
     var results: [Result] = []
     
@@ -47,6 +50,7 @@ class ViewController: UIViewController {
             do {
                 let jsonResults = try JSONDecoder().decode(APIResponse.self, from: data)
                 self?.results = jsonResults.results
+                print(self!.results.count)
             }
             catch {
                 print(error)
