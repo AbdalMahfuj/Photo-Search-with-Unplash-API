@@ -7,25 +7,8 @@
 
 import UIKit
 
-struct APIResponse: Codable {
-    let total : Int
-    let total_pages: Int
-    let results: [Result]
-}
-
-struct Result: Codable {
-    let id: String
-    let urls: URLS
-}
-
-struct URLS: Codable {
-    let full: String
-}
-
 class ViewController: UIViewController {
-    
-    let clientID = "YRtnAmFdt80Jmcj-ZNIEBSkT8u4F9gwUMgJOpfhEXuYv"
-    let query = "office"
+    @IBOutlet weak var myCollectionView: UICollectionView!
     
     let urlString =
     "https://api.unsplash.com/search/photos?page=30&query=office&client_id=YRtnAmFdt80Jmcj-ZNIEBSkT8u4F9gwUMgJOpfhEXuY"
@@ -34,6 +17,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.itemSize = CGSize(width: view.frame.size.width/2, height: view.frame.size.width/2)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
         fetchPhoto()
     }
     
