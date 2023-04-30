@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         myCollectionView.register(UINib(nibName: "ImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
         myCollectionView.collectionViewLayout = layout
         myCollectionView.dataSource = self
-        searchBar.delegate = self
+        searchBar.delegate = self       // searchBar delegate
         myCollectionView.backgroundColor = .systemBackground
     }
     
@@ -52,6 +52,7 @@ extension ViewController : UICollectionViewDataSource {
         //cell.backgroundColor = .red
         return cell
     }
+    
 }
 
 
@@ -69,7 +70,7 @@ extension ViewController: UISearchBarDelegate {
 }
 
 
-extension ViewController {
+extension ViewController { // API stuffs
     
     private func fetchPhoto(with query: String) {
         let urlString =
