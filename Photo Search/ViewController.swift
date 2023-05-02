@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         myCollectionView.collectionViewLayout = layout
         myCollectionView.dataSource = self
         searchBar.delegate = self       // searchBar delegate
-        myCollectionView.backgroundColor = .systemBackground
+       // myCollectionView.backgroundColor = .systemBackground
     }
     
     
@@ -49,7 +49,6 @@ extension ViewController : UICollectionViewDataSource {
         print(imageURLString)
         let cell = myCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ImageCollectionViewCell
         cell.configure(imageURLString)
-        //cell.backgroundColor = .red
         return cell
     }
     
